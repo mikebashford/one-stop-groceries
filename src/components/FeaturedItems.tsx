@@ -1,4 +1,5 @@
 import React from "react";
+import { formatCurrency } from "./../utils/formatCurrency";
 
 export default function FeaturedItems() {
   const featuredItems = [
@@ -6,27 +7,27 @@ export default function FeaturedItems() {
       id: 1,
       name: "Avocado",
       image: "/images/avocado.png",
-      price: "$1.50",
-      salePrice: "$1",
+      price: "1.50",
+      salePrice: "1",
     },
     {
       id: 2,
       name: "Butter",
       image: "/images/butter.png",
-      price: "$2",
-      salePrice: "$1",
+      price: "2",
+      salePrice: "1",
     },
     {
       id: 3,
       name: "Milk",
       image: "/images/milk.png",
-      price: "$3",
-      salePrice: "$1",
+      price: "3",
+      salePrice: "1",
     },
   ];
 
   return (
-    <div className="flex flex-row max-lg:flex-wrap">
+    <div className="flex flex-row max-lg:flex-wrap max-lg:justify-center">
       {featuredItems.map((item) => (
         <div
           className="flex flex-col relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-lg"
@@ -37,7 +38,7 @@ export default function FeaturedItems() {
             src={item.image}
             alt={item.name}
           />
-          <span className="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-black text-center text-sm text-white">
+          <span className="absolute top-0 left-0 w-32 translate-y-6 -translate-x-6 -rotate-45 bg-green-700 text-center text-sm text-white">
             Sale
           </span>
           <div className="mt-4 px-5 pb-5 z-50">
@@ -46,11 +47,11 @@ export default function FeaturedItems() {
             </h5>
             <div className="flex items-center justify-between">
               <p>
-                <span className="text-3xl font-bold text-slate-900">
-                  {item.salePrice}
+                <span className="text-2xl font-bold text-slate-900 me-2">
+                  {formatCurrency(item.salePrice)}
                 </span>
                 <span className="text-sm text-slate-900 line-through">
-                  {item.price}
+                  {formatCurrency(item.price)}
                 </span>
               </p>
               <div>
@@ -92,7 +93,7 @@ export default function FeaturedItems() {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  Remove from cart
+                  Remove
                 </button>
               </div>
             </div>
