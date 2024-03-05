@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import FeaturedItems from "./FeaturedItems";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import FeaturedItems from "../components/FeaturedItems";
 export default function Home({ existingUser, updateCallback }) {
   return (
     <div className="absolute inset-x-0 top-0 z-50 flex flex-col h-dvh">

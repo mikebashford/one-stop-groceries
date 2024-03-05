@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState } from "react";
-import Home from "./components/Home.tsx";
-import Register from "./components/Register.tsx";
-import Cart from "./components/Cart.tsx";
-import Login from "./components/Login.tsx";
+import Home from "./pages/Home.tsx";
+import Register from "./pages/Register.tsx";
+import Cart from "./pages/Cart.tsx";
+import Login from "./pages/Login.tsx";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
