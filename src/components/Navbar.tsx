@@ -1,4 +1,6 @@
-export default function navbar() {
+import React from "react";
+
+export default function navbar({ handleSidebar }) {
   return (
     <div>
       <div className="flex flex-wrap bg-green-700 text-white p-4 justify-center">
@@ -7,7 +9,9 @@ export default function navbar() {
       <div className="navbar flex flex-wrap bg-green-700 text-white p-4">
         <div className="ms-72 max-md:hidden"></div>
         <div className="flex space-x-12">
-          <p>Shop</p>
+          <button className="flex" onMouseEnter={handleSidebar}>
+            Shop
+          </button>
           <div className="flex ms-8 w-80 h-8 relative">
             <label htmlFor="search-input" className="flex"></label>
             <input

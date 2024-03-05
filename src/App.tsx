@@ -4,11 +4,13 @@ import Navbar from "./components/Navbar.tsx";
 import Users from "./components/Users.tsx";
 import Register from "./components/Register.tsx";
 import Footer from "./components/Footer.tsx";
+import ShopOptionsList from "./components/ShopOptionsList";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     fetchUsers();
@@ -41,9 +43,18 @@ function App() {
     console.log(data.users);
   };
 
+  const handleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    console.log(isSidebarOpen);
+  };
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar handleSidebar={handleSidebar} />
+      <ShopOptionsList
+        sidebarOpen={isSidebarOpen}
+        handleSidebar={handleSidebar}
+      />
       <Register
         openModal={openCreateModal}
         closeModal={closeModal}
