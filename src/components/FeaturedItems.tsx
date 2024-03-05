@@ -3,18 +3,21 @@ import React from "react";
 export default function FeaturedItems() {
   const featuredItems = [
     {
+      id: 1,
       name: "Avocado",
       image: "/images/avocado.png",
       price: "$1.50",
       salePrice: "$1",
     },
     {
+      id: 2,
       name: "Butter",
       image: "/images/butter.png",
       price: "$2",
       salePrice: "$1",
     },
     {
+      id: 3,
       name: "Milk",
       image: "/images/milk.png",
       price: "$3",
@@ -23,11 +26,11 @@ export default function FeaturedItems() {
   ];
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row max-lg:flex-wrap">
       {featuredItems.map((item) => (
         <div
-          className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-lg"
-          key={item.name}
+          className="flex flex-col relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-lg"
+          key={item.id}
         >
           <img
             className="h-60 rounded-t-lg object-cover"

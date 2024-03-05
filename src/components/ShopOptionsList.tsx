@@ -22,7 +22,7 @@ export default function ShopOptionsList({
       className={`${isSidebarOpen ? "flex" : "hidden"}  `}
       onMouseLeave={handleSidebar}
     >
-      <div className="flex flex-col absolute rounded-br-3xl rounded-bl-3xl left-64 w-48 bg-green-700 text-white p-4 z-1">
+      <div className="flex flex-col absolute rounded-br-3xl rounded-bl-3xl left-16 max-lg:left-0 w-48 bg-green-700 text-white p-4 z-1">
         <p className="text-2xl font-bold mb-4">Categories</p>
         <ul className="list-none">
           {categories.map((category) => (
