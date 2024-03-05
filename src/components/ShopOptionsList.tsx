@@ -19,7 +19,7 @@ export default function ShopOptionsList({
   ];
   return (
     <div
-      className={`${isSidebarOpen ? "hidden" : "flex"}  `}
+      className={`${isSidebarOpen ? "flex" : "hidden"}  `}
       onMouseLeave={handleSidebar}
     >
       <div className="flex flex-col absolute rounded-br-3xl rounded-bl-3xl left-64 w-48 bg-green-700 text-white p-4 z-1">
