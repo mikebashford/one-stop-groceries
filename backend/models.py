@@ -6,6 +6,7 @@ class Users(db.Model):
     last_name = db.Column(db.String(40), unique=False, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
+    role = db.Column(db.String(80), unique=False, nullable=False)
       
     def to_json(self):
         return{
@@ -14,6 +15,5 @@ class Users(db.Model):
           "lastName": self.last_name,
           "email": self.email,
           "password": self.password,
-        }
-      
-        
+          "role": self.role,
+        }      

@@ -13,12 +13,13 @@ def create_user():
     last_name = request.json.get("lastName")
     email = request.json.get("email")
     password = request.json.get("password")
+    role = request.json.get("role")
     if not first_name or not last_name or not email or not password:
         return (
             jsonify({"message" : "You must include first name, last name, email, and password"}),
             400,
         )        
-    new_user = Users(first_name=first_name, last_name= last_name, email=email, password=password)
+    new_user = Users(first_name=first_name, last_name= last_name, email=email, password=password, role=role)
     try:
         db.session.add(new_user)
         db.session.commit()

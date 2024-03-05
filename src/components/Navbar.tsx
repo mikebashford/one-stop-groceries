@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import ShopOptionsList from "./ShopOptionsList";
 
-export default function navbar({ handleSidebar }) {
+export default function Navbar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const handleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    console.log(isSidebarOpen);
+  };
   return (
     <div>
       <div className="flex flex-wrap bg-green-700 text-white p-4 justify-center">
-        <p className="font-bold uppercase text-4xl">One Stop Grocer</p>
+        <a href="/" className="font-bold uppercase text-4xl">
+          One Stop Grocer
+        </a>
       </div>
       <div className="navbar flex flex-wrap bg-green-700 text-white p-4">
         <div className="ms-72 max-md:hidden"></div>
@@ -56,6 +64,10 @@ export default function navbar({ handleSidebar }) {
           </ul>
         </div>
       </div>
+      <ShopOptionsList
+        isSidebarOpen={isSidebarOpen}
+        handleSidebar={handleSidebar}
+      />
     </div>
   );
 }
