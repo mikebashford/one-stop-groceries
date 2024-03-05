@@ -8,7 +8,7 @@ export default function Navbar() {
     console.log(isSidebarOpen);
   };
   return (
-    <div>
+    <div className="flex flex-col z-10">
       <div className="flex flex-wrap bg-green-700 text-white p-4 justify-center">
         <a href="/" className="font-bold uppercase text-4xl">
           One Stop Grocer

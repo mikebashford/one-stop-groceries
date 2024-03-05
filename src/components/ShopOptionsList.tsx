@@ -7,35 +7,29 @@ export default function ShopOptionsList({
   isSidebarOpen: boolean;
   handleSidebar: () => void;
 }) {
+  const categories = [
+    "Fruits",
+    "Vegetables",
+    "Dairy",
+    "Bread",
+    "Meat",
+    "Snacks",
+    "Canned Goods",
+    "Frozen",
+  ];
   return (
     <div
-      className={`${isSidebarOpen ? "hidden" : "block"}`}
+      className={`${isSidebarOpen ? "hidden" : "flex"}  `}
       onMouseLeave={handleSidebar}
     >
-      <div className="block relative rounded-br-3xl rounded-bl-3xl inset-y-0 left-64 w-48 bg-green-700 text-white p-4">
+      <div className="flex flex-col absolute rounded-br-3xl rounded-bl-3xl left-64 w-48 bg-green-700 text-white p-4 z-1">
         <p className="text-2xl font-bold mb-4">Categories</p>
-        <ul>
-          <li className="mb-2">
-            <button>Fruits</button>
-          </li>
-          <li className="mb-2">
-            <button>Vegetables</button>
-          </li>
-          <li className="mb-2">
-            <button>Dairy</button>
-          </li>
-          <li className="mb-2">
-            <button>Bread</button>
-          </li>
-          <li className="mb-2">
-            <button>Meat</button>
-          </li>
-          <li className="mb-2">
-            <button>Snacks</button>
-          </li>
-          <li className="mb-2">
-            <button>Beverages</button>
-          </li>
+        <ul className="list-none">
+          {categories.map((category) => (
+            <li className="mb-2 hover:bg-green-500" key={category}>
+              <button>{category}</button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
