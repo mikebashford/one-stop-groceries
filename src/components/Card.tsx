@@ -1,6 +1,6 @@
 import React from "react";
 import { formatCurrency } from "./../utils/formatCurrency";
-import { useShoppingCartCount } from "../utils/shoppingCartCount";
+import { useShoppingCart } from "../utils/shoppingCart";
 
 type CardProps = {
   id: number;
@@ -11,7 +11,7 @@ type CardProps = {
 };
 export default function Card({ id, img, name, price, salePrice }: CardProps) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
-    useShoppingCartCount();
+    useShoppingCart();
   const quantity = getItemQuantity(id);
   return (
     <div

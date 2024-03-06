@@ -5,7 +5,7 @@ import Register from "./pages/Register.tsx";
 import Cart from "./pages/Cart.tsx";
 import Login from "./pages/Login.tsx";
 import { Routes, Route } from "react-router-dom";
-import { ShoppingCartProvider } from "./utils/shoppingCartCount.tsx";
+import { ShoppingCartProvider } from "./utils/shoppingCart.tsx";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});

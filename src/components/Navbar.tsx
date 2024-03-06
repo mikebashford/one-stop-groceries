@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ShopOptionsList from "./ShopOptionsList";
-import { useShoppingCartCount } from "./../utils/shoppingCartCount";
+import { useShoppingCart } from "./../utils/shoppingCart";
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -9,7 +9,7 @@ export default function Navbar() {
     console.log(isSidebarOpen);
   };
 
-  const { openCart, cartQuantity } = useShoppingCartCount();
+  const { openCart, cartQuantity } = useShoppingCart();
 
   return (
     <div className="flex flex-col z-10">
