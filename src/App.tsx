@@ -5,6 +5,7 @@ import Register from "./pages/Register.tsx";
 import Cart from "./pages/Cart.tsx";
 import Login from "./pages/Login.tsx";
 import { Routes, Route } from "react-router-dom";
+import { ShoppingCartProvider } from "./utils/shoppingCartCount.tsx";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -21,35 +22,37 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Routes>
-        <Route
-          element={
-            <Home existingUser={currentUser} updateCallback={onUpdate} />
-          }
-          path="/"
-        />
-        <Route
-          element={
-            <Login existingUser={currentUser} updateCallback={onUpdate} />
-          }
-          path="/login"
-        />
+    <ShoppingCartProvider>
+      <div className="App">
+        <Routes>
+          <Route
+            element={
+              <Home existingUser={currentUser} updateCallback={onUpdate} />
+            }
+            path="/"
+          />
+          <Route
+            element={
+              <Login existingUser={currentUser} updateCallback={onUpdate} />
+            }
+            path="/login"
+          />
 
-        <Route
-          element={
-            <Register existingUser={currentUser} updateCallback={onUpdate} />
-          }
-          path="/register"
-        />
-        <Route
-          element={
-            <Cart existingUser={currentUser} updateCallback={onUpdate} />
-          }
-          path="/cart"
-        />
-      </Routes>
-    </div>
+          <Route
+            element={
+              <Register existingUser={currentUser} updateCallback={onUpdate} />
+            }
+            path="/register"
+          />
+          <Route
+            element={
+              <Cart existingUser={currentUser} updateCallback={onUpdate} />
+            }
+            path="/cart"
+          />
+        </Routes>
+      </div>
+    </ShoppingCartProvider>
   );
 }
 

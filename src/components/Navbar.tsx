@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ShopOptionsList from "./ShopOptionsList";
+import { useShoppingCartCount } from "./../utils/shoppingCartCount";
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -7,6 +8,9 @@ export default function Navbar() {
     setIsSidebarOpen(!isSidebarOpen);
     console.log(isSidebarOpen);
   };
+
+  const { openCart, cartQuantity } = useShoppingCartCount();
+
   return (
     <div className="flex flex-col z-10">
       <div className="flex flex-wrap bg-green-700 text-white p-4 justify-center">
@@ -61,7 +65,7 @@ export default function Navbar() {
               <a href="/register">Register</a>
             </li>
             <li>
-              <a href="/cart">
+              <a href="/cart" onClick={openCart}>
                 <svg
                   fill="#ffffff"
                   version="1.1"
@@ -71,12 +75,12 @@ export default function Navbar() {
                   viewBox="0 0 902.86 902.86"
                   stroke="#ffffff"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
 
                   <g id="SVGRepo_iconCarrier">
@@ -92,7 +96,7 @@ export default function Navbar() {
                   </g>
                 </svg>
                 <div className="rounded-full w-5 h-5 bg-blue-500 flex justify-center items-center absolute -translate-y-3/4 translate-x-1/2">
-                  1
+                  {cartQuantity}
                 </div>
               </a>
             </li>
