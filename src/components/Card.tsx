@@ -29,10 +29,10 @@ export default function Card({ id, img, name, price, salePrice }: CardProps) {
         <div className="flex items-center justify-between">
           <p>
             <span className="text-2xl font-bold text-slate-900 me-2">
-              {formatCurrency(price)}
+              {formatCurrency(salePrice)}
             </span>
             <span className="text-sm text-slate-900 line-through">
-              {formatCurrency(salePrice)}
+              {formatCurrency(price)}
             </span>
           </p>
           <div className="flex">

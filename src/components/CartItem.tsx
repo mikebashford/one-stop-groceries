@@ -1,6 +1,7 @@
 import { useShoppingCart } from "./../utils/shoppingCart";
 import featuredItems from "./../data/featuredItems.json";
 import { formatCurrency } from "./../utils/formatCurrency";
+import allItems from "./../data/allItems.json";
 type CartItemProps = {
   id: number;
   quantity: number;
@@ -8,7 +9,13 @@ type CartItemProps = {
 
 export default function CartItem({ id, quantity }: CartItemProps) {
   const { removeFromCart } = useShoppingCart();
-  const item = featuredItems.find((item) => item.id === id);
+  let filteredItems = allItems.filter(
+    (item) => !featuredItems.find((featured) => featured[item])
+  );
+  console.log(filteredItems);
+  const item = filteredItems.find((item) => item.id === id);
+  console.log(item);
+  //const item = featuredItems.find((item) => item.id === id);
   if (item == null) return null;
 
   return (
@@ -23,18 +30,18 @@ export default function CartItem({ id, quantity }: CartItemProps) {
           {item.name}
         </p>
         <p className="text-sm text-slate-900 me-24 max-md:flex max-md:mt-4">
-          {formatCurrency(item.price)}
+          {formatCurrency(item.salePrice)}
         </p>
       </div>
       <div className="flex items-center w-1/2 justify-center text-sm text-slate-900 max-md:mt-6">
         {item.name}
         {quantity > 0 && ` x ${quantity}`}
       </div>
-      <div className="flex items-center w-1/4 justify-center text-sm text-slate-900 max-md:mt-2">
+      <div className="flex items-center w-1/4 justify-center text-sm text-slate-900 max-md:mt-2 line-through">
         {formatCurrency(item.price)}
       </div>
       <div className="flex items-center w-1/4 justify-center text-lg font-medium text-slate-900 max-md:mt-4 ">
-        {formatCurrency(item.price * quantity)}
+        {formatCurrency(item.salePrice * quantity)}
       </div>
       <div>
         <button
